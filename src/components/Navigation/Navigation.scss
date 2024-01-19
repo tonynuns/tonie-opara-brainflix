@@ -1,0 +1,8 @@
+@use "../../styles/partials/mixins" as *;
+
+.nav {
+	padding: 1.6rem;
+	@include flex-property($direction: column);
+	gap: 1.6rem;
+	position: relative;
+}
