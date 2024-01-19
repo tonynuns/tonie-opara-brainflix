@@ -11,4 +11,9 @@
 		padding: 2.4rem;
 		gap: 2.4rem;
 	}
+
+	@include desktop {
+		padding-right: 8rem;
+		padding-left: 8rem;
+	}
 }

@@ -1,4 +1,3 @@
-import avatar from "../../../assets/images/images/Mohan-muruge.jpg";
 import "./Avatar.scss";
 
 function Avatar() {

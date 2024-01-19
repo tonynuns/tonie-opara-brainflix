@@ -8,4 +8,8 @@
 	@include tablet {
 		margin-right: 10rem;
 	}
+
+	@include desktop {
+		margin-right: 40rem;
+	}
 }
