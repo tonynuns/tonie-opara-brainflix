@@ -5,4 +5,10 @@
 	@include flex-property($direction: column);
 	gap: 1.6rem;
 	position: relative;
+
+	@include tablet {
+		flex-direction: row;
+		padding: 2.4rem;
+		gap: 2.4rem;
+	}
 }

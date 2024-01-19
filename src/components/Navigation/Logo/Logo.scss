@@ -1,4 +1,11 @@
+@use "../../../styles/partials/mixins" as *;
+
 .nav__logo {
 	width: 40%;
 	align-self: center;
+	max-height: 2.5rem;
+
+	@include tablet {
+		margin-right: 10rem;
+	}
 }

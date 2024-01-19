@@ -13,4 +13,9 @@
 	height: 4rem;
 	width: 100%;
 	@include typography(1.3rem, 700, 2rem);
+
+	@include tablet {
+		padding: 0 3.2rem;
+		width: 40%;
+	}
 }
