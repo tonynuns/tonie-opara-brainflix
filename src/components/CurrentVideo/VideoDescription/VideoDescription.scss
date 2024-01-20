@@ -1,0 +1,128 @@
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/variables" as *;
+
+.video-desc {
+	padding: 0 1.6rem;
+
+	@include tablet {
+		padding: 0 4rem;
+	}
+
+	@include desktop {
+		padding-left: 12rem;
+		padding-right: 3rem;
+		width: 65%;
+	}
+
+	&__title {
+		@include typography(2.4rem, 600, 2.8rem);
+		padding: 1.6rem 0;
+
+		@include tablet {
+			font-size: 3.3rem;
+			padding: 4rem 0 2rem;
+		}
+	}
+	&__info-wrapper {
+		border-top: 2px solid $mercury;
+		border-bottom: 2px solid $mercury;
+		padding: 1.6rem 0;
+		@include flex-property($align: center);
+		gap: 7.5rem;
+
+		@include tablet {
+			border-top: none;
+			padding: 0 0 0.8rem;
+			justify-content: space-between;
+		}
+	}
+	&__channel-date-wrapper {
+		@include flex-property($direction: column);
+		gap: 1.6rem;
+
+		@include tablet {
+			@include flex-property($align: center);
+			gap: 3rem;
+		}
+	}
+	&__channel {
+		@include typography($text-size: 1.4rem, $text-weight: 600);
+
+		@include tablet {
+			font-size: 1.5rem;
+		}
+	}
+	&__date {
+		@include typography($text-size: 1.3rem, $text-weight: 400);
+		color: $silver;
+
+		@include tablet {
+			font-size: 1.1rem;
+		}
+	}
+	&__views-likes-wrapper {
+		@include flex-property($direction: column);
+		margin-top: 0.2rem;
+		gap: 1.5rem;
+
+		@include tablet {
+			@include flex-property($align: center);
+			margin-top: 0;
+			gap: 3rem;
+		}
+	}
+	&__views {
+		@include flex-property($align: center);
+		gap: 1rem;
+
+		&-icon {
+			width: 22%;
+		}
+		&-count {
+			@include typography($text-size: 1.3rem, $text-weight: 400);
+			color: $silver;
+
+			@include tablet {
+				font-size: 1.1rem;
+			}
+		}
+	}
+	&__likes {
+		@include flex-property($align: center);
+		gap: 1rem;
+
+		&-icon {
+			width: 20%;
+		}
+		&-count {
+			@include typography($text-size: 1.3rem, $text-weight: 400);
+			color: $silver;
+
+			@include tablet {
+				font-size: 1.1rem;
+			}
+		}
+	}
+	&__text {
+		padding-top: 2rem;
+		@include typography(1.285rem, 400, 1.8rem);
+
+		@include tablet {
+			@include typography(1.42rem, 400, 2.2rem);
+			padding-top: 2.5rem;
+		}
+
+		@include desktop {
+			@include typography(1.4rem, 400, 2.4rem);
+		}
+	}
+	&__comment-count {
+		padding-top: 2rem;
+		@include typography(1.3rem, 600, 1.8rem);
+
+		@include tablet {
+			font-size: 1.4rem;
+			padding-top: 3rem;
+		}
+	}
+}
