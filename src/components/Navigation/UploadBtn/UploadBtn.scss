@@ -1,3 +1,9 @@
+@use "../../../styles/partials/mixins" as *;
+
 .nav__btn {
 	background-image: url("../../../assets/images/icons/upload.svg");
+
+	@include tablet {
+		width: 37%;
+	}
 }

@@ -1,0 +1,80 @@
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/variables" as *;
+
+.comment-form {
+	padding: 2rem 1.6rem;
+
+	@include tablet {
+		padding: 2rem 4rem;
+	}
+
+	@include desktop {
+		padding-left: 12rem;
+		padding-right: 3rem;
+		width: 65%;
+	}
+
+	&__avatar-form-wrapper {
+		@include flex-property();
+		gap: 1.5rem;
+
+		@include desktop {
+			gap: 4.5rem;
+		}
+	}
+
+	&__heading {
+		@include typography($text-size: 1.1rem, $text-weight: 600);
+		color: $silver;
+		padding-left: 5.5rem;
+		padding-bottom: 0.3rem;
+
+		@include desktop {
+			padding-left: 8.5rem;
+		}
+	}
+	&__avatar {
+		background-image: url("../../../assets/images/images/Mohan-muruge.jpg");
+		background-size: cover;
+	}
+	&__form {
+		@include flex-property($direction: column);
+		gap: 1.5rem;
+		width: 100%;
+
+		@include tablet {
+			@include flex-property();
+			gap: 2rem;
+		}
+	}
+
+	&__text {
+		padding: 1.2rem;
+		border: 1px solid $mercury;
+		height: 10rem;
+		width: 100%;
+		border-radius: 0.4rem;
+		font-family: "avenir-next";
+		font-size: 1.15rem;
+		background-color: $alabaster;
+
+		@include tablet {
+			height: 4rem;
+		}
+
+		&::placeholder {
+			color: $brainflix-black;
+		}
+	}
+	&__btn {
+		background-image: url("../../../assets/images/icons/add_comment.svg");
+
+		@include tablet {
+			width: 28%;
+		}
+
+		@include desktop {
+			width: 30%;
+		}
+	}
+}

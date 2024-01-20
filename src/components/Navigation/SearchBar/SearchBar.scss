@@ -6,11 +6,12 @@
 	background-size: 1.5rem;
 	background-repeat: no-repeat;
 	background-position: 1.2rem 50%;
+	background-color: $alabaster;
 	border-radius: 0.4rem;
 	height: 4rem;
 	width: 80%;
 	padding-left: 3.2rem;
-	border: 2px solid $mercury;
+	border: 1px solid $mercury;
 	font-size: 1.2rem;
 
 	&::placeholder {

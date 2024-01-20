@@ -22,19 +22,17 @@ body {
 }
 .btn {
 	background-color: $brainflix-blue;
-	background-size: 2.2rem;
+	background-size: 1.8rem;
 	background-repeat: no-repeat;
 	background-position: 5% 50%;
 	border: none;
 	border-radius: 0.4rem;
 	color: $white;
 	height: 4rem;
-	width: 100%;
 	cursor: pointer;
 	@include typography(1.3rem, 700, 2rem);
 
 	@include tablet {
 		padding: 0 3.2rem;
-		width: 40%;
 	}
 }
