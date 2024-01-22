@@ -1,7 +1,7 @@
 @use "../../../styles/partials/mixins" as *;
 @use "../../../styles/partials/variables" as *;
 
-.current-video__player-container {
+.video-player {
 	@include flex-property($justify: center);
 	background-color: $brainflix-darkblack;
 
@@ -10,11 +10,11 @@
 	}
 
 	@include desktop {
-		height: 51rem;
+		height: 50rem;
 	}
-}
 
-.current-video__player {
-	max-width: 100%;
-	max-height: 56.25vw;
+	&__video {
+		max-width: 100%;
+		max-height: 56.25vw;
+	}
 }

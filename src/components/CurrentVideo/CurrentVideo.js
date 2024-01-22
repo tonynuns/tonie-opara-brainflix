@@ -1,17 +1,18 @@
 import VideoPlayer from "./VideoPlayer/VideoPlayer";
 import VideoDescription from "./VideoDescription/VideoDescription";
 import CommentForm from "./CommentForm/CommentForm";
+import CommentList from "./CommentList/CommentList";
 import "./CurrentVideo.scss";
 
-function CurrentVideo() {
+function CurrentVideo(currentVideoObj) {
 	return (
 		<section className="current-video">
-			<VideoPlayer />
-			<VideoDescription />
+			<VideoPlayer {...currentVideoObj} />
+			<VideoDescription {...currentVideoObj} />
 			<CommentForm />
+			<CommentList {...currentVideoObj} />
 		</section>
 	);
 }
-CurrentVideo();
 
 export default CurrentVideo;

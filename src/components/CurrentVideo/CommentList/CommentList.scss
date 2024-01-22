@@ -1,0 +1,15 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.comment-list {
+	padding: 0 1.6rem;
+
+	@include tablet {
+		padding: 1rem 4rem;
+	}
+	@include desktop {
+		padding-left: 12rem;
+		padding-right: 1.8rem;
+		width: 64%;
+	}
+}

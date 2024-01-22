@@ -1,15 +1,13 @@
-import json from "../../../data/video-details.json";
 import "./VideoPlayer.scss";
 
-function VideoPlayer() {
-	const videoPoster = json[0].image;
+function VideoPlayer({ video, image }) {
 	return (
-		<div className="current-video__player-container">
+		<div className="video-player">
 			<video
-				className="current-video__player"
+				className="video-player__video"
 				controls
-				src=""
-				poster={videoPoster}></video>
+				src={video}
+				poster={image}></video>
 		</div>
 	);
 }
