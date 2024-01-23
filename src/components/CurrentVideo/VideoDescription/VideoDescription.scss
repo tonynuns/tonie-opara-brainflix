@@ -10,8 +10,8 @@
 
 	@include desktop {
 		padding-left: 12rem;
-		padding-right: 1.8rem;
-		width: 64%;
+		padding-right: 0;
+		width: 64.5%;
 	}
 
 	&__title {
@@ -34,6 +34,9 @@
 			border-top: none;
 			padding: 0 0 0.8rem;
 			justify-content: space-between;
+		}
+		@include desktop {
+			padding-right: 1.8rem;
 		}
 	}
 	&__channel-date-wrapper {
@@ -77,6 +80,7 @@
 
 		&-icon {
 			width: 22%;
+			margin-bottom: 0.4rem;
 		}
 		&-count {
 			@include typography($text-size: 1.3rem, $text-weight: 400);
@@ -93,6 +97,7 @@
 
 		&-icon {
 			width: 20%;
+			margin-bottom: 0.3rem;
 		}
 		&-count {
 			@include typography($text-size: 1.3rem, $text-weight: 400);
@@ -112,7 +117,8 @@
 			padding-top: 2.5rem;
 		}
 		@include desktop {
-			@include typography(1.4rem, 400, 2.4rem);
+			@include typography(1.42rem, 400, 2.4rem);
+			padding-right: 1.8rem;
 		}
 	}
 	&__comment-count {

@@ -4,8 +4,12 @@
 .comments {
 	@include flex-property;
 	gap: 1.6rem;
-	padding: 1.4rem 0;
+	padding: 2.2rem 0;
 	border-top: 1px solid $mercury;
+
+	@include desktop {
+		padding-right: 1.8rem;
+	}
 
 	&__avatar {
 		background-color: $mercury;
@@ -53,7 +57,7 @@
 		}
 		@include desktop {
 			@include typography(
-				$text-size: 1.49rem,
+				$text-size: 1.51rem,
 				$text-weight: 400,
 				$line-height: 2.4rem
 			);

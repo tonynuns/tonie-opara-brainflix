@@ -1,0 +1,47 @@
+@use "../../../styles/partials/mixins" as *;
+
+.videos {
+	@include flex-property($align: center);
+	gap: 1.4rem;
+	padding-bottom: 1.5rem;
+
+	@include tablet {
+		padding-bottom: 2.2rem;
+		gap: 1.7rem;
+	}
+
+	&__img-wrapper {
+		min-width: 10.5rem;
+
+		@include desktop {
+			min-width: 12rem;
+		}
+	}
+	&__img {
+		display: block;
+		width: 100%;
+		height: 6.2rem;
+		object-fit: cover;
+		border-radius: 0.4rem;
+	}
+
+	&__text-wrapper {
+		@include flex-property($direction: column, $justify: space-between);
+		gap: 0.8rem;
+		height: 6.2rem;
+	}
+	&__title {
+		@include typography(
+			$text-size: 1.3rem,
+			$text-weight: 600,
+			$line-height: 1.8rem
+		);
+	}
+	&__channel {
+		@include typography(
+			$text-size: 1.3rem,
+			$text-weight: 400,
+			$line-height: 1.8rem
+		);
+	}
+}
