@@ -3,10 +3,10 @@ import "./VideoList.scss";
 
 function VideoList(props) {
 	return (
-		<div className="video-list">
+		<section className="video-list">
 			<h1 className="video-list__heading">NEXT VIDEOS</h1>
-			{props.videoList
-				.filter((videoList) => videoList.id !== props.currentVideoObj.id)
+			{props.sideVideosList
+				.filter((sideVideo) => sideVideo.id !== props.mainVideoObj.id)
 				.map((video) => (
 					<Videos
 						id={video.id}
@@ -16,7 +16,7 @@ function VideoList(props) {
 						clickHandler={props.clickHandler}
 					/>
 				))}
-		</div>
+		</section>
 	);
 }
 

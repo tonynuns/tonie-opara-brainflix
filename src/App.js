@@ -1,30 +1,29 @@
 import { useState } from "react";
-import videoDetailsArr from "./data/video-details.json";
-import videoListArr from "./data/videos.json";
+import mainVideosArr from "./data/video-details.json";
+import sideVideosArr from "./data/videos.json";
 import Navigation from "./components/Navigation/Navigation";
 import CurrentVideo from "./components/CurrentVideo/CurrentVideo";
 import VideoList from "./components/VideoList/VideoList";
 import "./App.scss";
 
 function App() {
-	const initialVideoObj = videoDetailsArr[0];
-	const [currentVideoObj, setCurrentVideoObj] = useState(initialVideoObj);
-	const [videoList, setVideoList] = useState(videoListArr);
+	const [mainVideoObj, setMainVideoObj] = useState(mainVideosArr[0]);
+	const [sideVideosList, setSideVideosList] = useState(sideVideosArr);
 
 	const clickHandler = (event) => {
-		const newVideoObj = videoDetailsArr.filter(
-			(video) => video.id === event.target.id
+		const newMainVideoArr = mainVideosArr.filter((video) =>
+			event.target.className.includes(video.id)
 		);
-		setCurrentVideoObj(newVideoObj[0]);
+		setMainVideoObj(newMainVideoArr[0]);
 	};
 
 	return (
 		<>
 			<Navigation />
-			<CurrentVideo {...currentVideoObj} />
+			<CurrentVideo {...mainVideoObj} />
 			<VideoList
-				videoList={videoList}
-				currentVideoObj={currentVideoObj}
+				sideVideosList={sideVideosList}
+				mainVideoObj={mainVideoObj}
 				clickHandler={clickHandler}
 			/>
 		</>

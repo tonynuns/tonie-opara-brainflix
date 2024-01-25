@@ -4,13 +4,13 @@ import CommentForm from "./CommentForm/CommentForm";
 import CommentList from "./CommentList/CommentList";
 import "./CurrentVideo.scss";
 
-function CurrentVideo(currentVideoObj) {
+function CurrentVideo(mainVideoObj) {
 	return (
 		<section className="current-video">
-			<VideoPlayer {...currentVideoObj} />
-			<VideoDescription {...currentVideoObj} />
+			<VideoPlayer {...mainVideoObj} />
+			<VideoDescription {...mainVideoObj} />
 			<CommentForm />
-			<CommentList {...currentVideoObj} />
+			<CommentList {...mainVideoObj} />
 		</section>
 	);
 }

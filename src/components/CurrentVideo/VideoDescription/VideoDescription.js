@@ -2,20 +2,20 @@ import viewsIcon from "../../../assets/images/icons/views.svg";
 import likesIcon from "../../../assets/images/icons/likes.svg";
 import "./VideoDescription.scss";
 
-function VideoDescription({ ...currentVideoObj }) {
-	const date = new Date(currentVideoObj.timestamp).toLocaleDateString("en-US", {
+function VideoDescription({ ...mainVideoObj }) {
+	const date = new Date(mainVideoObj.timestamp).toLocaleDateString("en-US", {
 		year: "numeric",
 		month: "2-digit",
 		day: "2-digit",
 	});
-	const commentCount = currentVideoObj.comments.length;
+	const commentCount = mainVideoObj.comments.length;
 
 	return (
-		<div className="video-desc">
-			<h1 className="video-desc__title">{currentVideoObj.title}</h1>
+		<section className="video-desc">
+			<h1 className="video-desc__title">{mainVideoObj.title}</h1>
 			<div className="video-desc__info-wrapper">
 				<div className="video-desc__channel-date-wrapper">
-					<p className="video-desc__channel">By {currentVideoObj.channel}</p>
+					<p className="video-desc__channel">By {mainVideoObj.channel}</p>
 					<p className="video-desc__date">{date}</p>
 				</div>
 				<div className="video-desc__views-likes-wrapper">
@@ -25,7 +25,7 @@ function VideoDescription({ ...currentVideoObj }) {
 							src={viewsIcon}
 							alt="Views Icon"
 						/>
-						<p className="video-desc__views-count">{currentVideoObj.views}</p>
+						<p className="video-desc__views-count">{mainVideoObj.views}</p>
 					</div>
 					<div className="video-desc__likes">
 						<img
@@ -33,13 +33,13 @@ function VideoDescription({ ...currentVideoObj }) {
 							src={likesIcon}
 							alt="Likes Icon"
 						/>
-						<p className="video-desc__likes-count">{currentVideoObj.likes}</p>
+						<p className="video-desc__likes-count">{mainVideoObj.likes}</p>
 					</div>
 				</div>
 			</div>
-			<p className="video-desc__text">{currentVideoObj.description}</p>
+			<p className="video-desc__text">{mainVideoObj.description}</p>
 			<p className="video-desc__comment-count">{commentCount} Comments</p>
-		</div>
+		</section>
 	);
 }
 
