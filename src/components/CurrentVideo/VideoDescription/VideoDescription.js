@@ -1,13 +1,10 @@
 import viewsIcon from "../../../assets/images/icons/views.svg";
 import likesIcon from "../../../assets/images/icons/likes.svg";
 import "./VideoDescription.scss";
+import formatDate from "../../../helperFunctions/formatDate";
 
 function VideoDescription({ ...mainVideoObj }) {
-	const date = new Date(mainVideoObj.timestamp).toLocaleDateString("en-US", {
-		year: "numeric",
-		month: "2-digit",
-		day: "2-digit",
-	});
+	const date = formatDate(mainVideoObj.timestamp);
 	const commentCount = mainVideoObj.comments.length;
 
 	return (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import mainVideosArr from "./data/video-details.json";
 import sideVideosArr from "./data/videos.json";
 import Navigation from "./components/Navigation/Navigation";

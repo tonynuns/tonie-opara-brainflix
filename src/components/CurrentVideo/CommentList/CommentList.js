@@ -1,5 +1,6 @@
 import Comments from "./Comments/Comments";
 import "./CommentList.scss";
+import formatDate from "../../../helperFunctions/formatDate";
 
 function CommentList({ comments }) {
 	return (
@@ -7,11 +8,7 @@ function CommentList({ comments }) {
 			{comments.map((comment) => (
 				<Comments
 					name={comment.name}
-					date={new Date(comment.timestamp).toLocaleDateString("en-US", {
-						year: "numeric",
-						month: "2-digit",
-						day: "2-digit",
-					})}
+					date={formatDate(comment.timestamp)}
 					comment={comment.comment}
 				/>
 			))}
