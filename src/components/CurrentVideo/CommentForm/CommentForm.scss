@@ -9,9 +9,9 @@
 	}
 
 	@include desktop {
-		padding-left: 12rem;
-		padding-right: 1.8rem;
-		width: 66%;
+		padding-left: $wide-padding;
+		padding-right: $narrow-padding;
+		width: $wide-width;
 	}
 
 	&__avatar-form-wrapper {

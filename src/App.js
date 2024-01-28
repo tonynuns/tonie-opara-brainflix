@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import mainVideosArr from "./data/video-details.json";
 import sideVideosArr from "./data/videos.json";
 import Navigation from "./components/Navigation/Navigation";
@@ -11,21 +10,19 @@ function App() {
 	const [mainVideoObj, setMainVideoObj] = useState(mainVideosArr[0]);
 	const [sideVideosList, setSideVideosList] = useState(sideVideosArr);
 
-	const clickHandler = (event) => {
-		const newMainVideoArr = mainVideosArr.filter((video) =>
-			event.target.className.includes(video.id)
-		);
+	const handleVideoClick = (id) => {
+		const newMainVideoArr = mainVideosArr.filter((video) => video.id === id);
 		setMainVideoObj(newMainVideoArr[0]);
 	};
 
 	return (
 		<>
 			<Navigation />
-			<CurrentVideo {...mainVideoObj} />
+			<CurrentVideo mainVideo={mainVideoObj} />
 			<VideoList
 				sideVideosList={sideVideosList}
-				mainVideoObj={mainVideoObj}
-				clickHandler={clickHandler}
+				mainVideo={mainVideoObj}
+				handleVideoClick={handleVideoClick}
 			/>
 		</>
 	);

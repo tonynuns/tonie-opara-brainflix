@@ -9,9 +9,9 @@
 	}
 
 	@include desktop {
-		padding-left: 12rem;
+		padding-left: $wide-padding;
 		padding-right: 0;
-		width: 66%;
+		width: $wide-width;
 	}
 
 	&__title {
@@ -20,7 +20,6 @@
 
 		@include tablet {
 			font-size: 3.3rem;
-			// font-weight: 700;
 			padding: 4rem 0 2rem;
 		}
 	}
@@ -37,7 +36,7 @@
 			justify-content: space-between;
 		}
 		@include desktop {
-			padding-right: 1.8rem;
+			padding-right: $narrow-padding;
 		}
 	}
 	&__channel-date-wrapper {
@@ -119,7 +118,7 @@
 		}
 		@include desktop {
 			@include typography(1.45rem, 400, 2.4rem);
-			padding-right: 1.8rem;
+			padding-right: $narrow-padding;
 		}
 	}
 	&__comment-count {

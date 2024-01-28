@@ -8,8 +8,8 @@
 		padding: 1rem 4rem 0;
 	}
 	@include desktop {
-		padding-left: 12rem;
+		padding-left: $wide-padding;
 		padding-right: 0;
-		width: 66%;
+		width: $wide-width;
 	}
 }

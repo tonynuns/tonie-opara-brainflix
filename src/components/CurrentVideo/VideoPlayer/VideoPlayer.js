@@ -1,13 +1,13 @@
 import "./VideoPlayer.scss";
 
-function VideoPlayer({ video, image }) {
+function VideoPlayer({ mainVideo }) {
 	return (
 		<section className="video-player">
 			<video
 				className="video-player__video"
 				controls
-				src={video}
-				poster={image}></video>
+				src={mainVideo.video}
+				poster={mainVideo.image}></video>
 		</section>
 	);
 }

@@ -11,8 +11,8 @@
 		padding: 1rem 40rem 0 0;
 	}
 	@include desktop {
-		width: 34%;
-		padding: 2rem 12rem 2.6rem 2.1rem;
+		width: $narrow-width;
+		padding: 2rem $wide-padding 3rem $narrow-padding;
 		margin: 0;
 		position: absolute;
 		top: 58.8rem;

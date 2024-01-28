@@ -11,3 +11,9 @@ $brainflix-darkblack: #000000;
 $brainflix-darkblue: #0065ad;
 $mercury: #e1e1e1;
 $alabaster: #fafafa;
+
+// Main Video and Side Videos Containers for Desktop Layout
+$wide-width: 66%;
+$wide-padding: 12rem;
+$narrow-width: calc(100% - $wide-width);
+$narrow-padding: 1.8rem;

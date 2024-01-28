@@ -1,19 +1,20 @@
 import Videos from "./Videos/Videos";
 import "./VideoList.scss";
 
-function VideoList(props) {
+function VideoList({ sideVideosList, mainVideo, handleVideoClick }) {
 	return (
 		<section className="video-list">
 			<h1 className="video-list__heading">NEXT VIDEOS</h1>
-			{props.sideVideosList
-				.filter((sideVideo) => sideVideo.id !== props.mainVideoObj.id)
+			{sideVideosList
+				.filter((sideVideo) => sideVideo.id !== mainVideo.id)
 				.map((video) => (
 					<Videos
+						key={video.id}
 						id={video.id}
 						image={video.image}
 						title={video.title}
 						channel={video.channel}
-						clickHandler={props.clickHandler}
+						handleVideoClick={handleVideoClick}
 					/>
 				))}
 		</section>
