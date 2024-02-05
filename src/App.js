@@ -1,28 +1,32 @@
-import { useState } from "react";
-import mainVideosArr from "./data/video-details.json";
-import sideVideosArr from "./data/videos.json";
+import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import MainVideo from "./components/MainVideo/MainVideo";
 import SideVideos from "./components/SideVideos/SideVideos";
+import { getMainVideo, getSideVideos } from "./utils/apiMethods/brainflix-api";
 import "./App.scss";
 
 function App() {
-	const [mainVideoObj, setMainVideoObj] = useState(mainVideosArr[0]);
-	const [sideVideosList] = useState(sideVideosArr);
+	const [mainVideoObj, setMainVideoObj] = useState({});
+	const [sideVideosList, setSideVideosList] = useState([]);
 
-	const handleVideoClick = (id) => {
-		const newMainVideoArr = mainVideosArr.filter((video) => video.id === id);
-		setMainVideoObj(newMainVideoArr[0]);
-	};
+	useEffect(() => {
+		const fetchData = async () => {
+			const sideVideos = await getSideVideos();
+			const mainVideo = await getMainVideo(sideVideos[0].id);
+			setSideVideosList(sideVideos);
+			setMainVideoObj(mainVideo);
+		};
+		fetchData();
+	}, []);
 
 	return (
 		<>
 			<Header />
 			<MainVideo mainVideo={mainVideoObj} />
 			<SideVideos
-				sideVideosList={sideVideosList}
+				sideVideos={sideVideosList}
 				mainVideo={mainVideoObj}
-				handleVideoClick={handleVideoClick}
+				setMainVideo={setMainVideoObj}
 			/>
 		</>
 	);

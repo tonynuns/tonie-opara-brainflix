@@ -1,0 +1,66 @@
+@use "../../../../styles/partials/mixins" as *;
+@use "../../../../styles/partials/variables" as *;
+
+.main-video__comment {
+	@include flex-property;
+	gap: 1.6rem;
+	padding: 2.2rem 0;
+	border-top: 1px solid $mercury;
+
+	@include desktop {
+		padding-right: $narrow-padding;
+	}
+
+	&-avatar {
+		background-color: $mercury;
+	}
+	&-text-wrapper {
+		position: relative;
+		margin-top: 0.3rem;
+		width: 100%;
+	}
+	&-name {
+		@include typography($text-size: 1.4rem, $text-weight: 600);
+		padding-bottom: 1.2rem;
+
+		@include tablet {
+			padding-bottom: 0.8rem;
+		}
+		@include desktop {
+			@include typography($text-size: 1.33rem, $text-weight: 600);
+		}
+	}
+	&-date {
+		position: absolute;
+		top: 0;
+		right: 0rem;
+		@include typography($text-size: 1.3rem, $text-weight: 600);
+		color: $silver;
+
+		@include desktop {
+			@include typography($text-size: 1.23rem, $text-weight: 600);
+		}
+	}
+	&-text {
+		@include typography(
+			$text-size: 1.265rem,
+			$text-weight: 400,
+			$line-height: 2rem
+		);
+
+		@include tablet {
+			@include typography(
+				$text-size: 1.39rem,
+				$text-weight: 400,
+				$line-height: 2.4rem
+			);
+		}
+		@include desktop {
+			@include typography(
+				$text-size: 1.55rem,
+				$text-weight: 400,
+				$line-height: 2.6rem
+			);
+		}
+	}
+}
