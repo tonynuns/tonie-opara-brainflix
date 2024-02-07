@@ -9,7 +9,9 @@ const getMainVideo = async (id) => {
 		);
 		return response.data;
 	} catch (error) {
-		console.error(error);
+		console.log(
+			`Failed to get Main Video from back-end API with error message: ${error}`
+		);
 	}
 };
 
@@ -18,7 +20,9 @@ const getSideVideos = async () => {
 		const response = await axios.get(`${apiBaseUrl}/videos?api_key=${apiKey}`);
 		return response.data;
 	} catch (error) {
-		console.error(error);
+		console.log(
+			`Failed to get Side Videos from back-end API with error message: ${error}`
+		);
 	}
 };
 

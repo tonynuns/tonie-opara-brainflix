@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
 import "./VideoDetail.scss";
 
-function VideoDetail({ id, image, title, channel, handleVideoClick }) {
+function VideoDetail({ id, image, title, channel }) {
 	return (
-		<div onClick={() => handleVideoClick(id)} className="side-videos__video">
+		<div className="side-videos__video">
 			<div className="side-videos__video-img-wrapper">
-				<img
-					className="side-videos__video-img"
-					src={image}
-					alt="Video Thumbnail"></img>
+				<Link to={`/${id}`}>
+					<img
+						className="side-videos__video-img"
+						src={image}
+						alt="Video Thumbnail"></img>
+				</Link>
 			</div>
 			<div className="side-videos__video-text-wrapper">
 				<h1 className="side-videos__video-title">{title}</h1>
