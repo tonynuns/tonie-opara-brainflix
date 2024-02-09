@@ -14,16 +14,6 @@
 		width: $wide-width;
 	}
 }
-.main-video__form-heading {
-	@include typography($text-size: 1.1rem, $text-weight: 600);
-	color: $silver;
-	padding-left: 5.5rem;
-	padding-bottom: 0.3rem;
-
-	@include desktop {
-		padding-left: 8.5rem;
-	}
-}
 
 .main-video__form-wrapper {
 	@include flex-property();
@@ -37,6 +27,7 @@
 .main-video__form-avatar {
 	background-image: url("../../../assets/images/images/Mohan-muruge.jpg");
 	background-size: cover;
+	margin-top: 1.5rem;
 }
 .main-video__form {
 	@include flex-property($direction: column);
@@ -44,33 +35,27 @@
 	width: 100%;
 
 	@include tablet {
-		@include flex-property();
-		gap: 2rem;
+		@include flex-property($justify: space-between, $align: flex-end);
+		gap: 3rem;
 	}
 
-	&-text {
-		padding: 1.2rem;
-		border: 1px solid $mercury;
-		height: 10rem;
+	&-label {
 		width: 100%;
-		border-radius: 0.4rem;
-		font-family: "avenir-next";
-		font-size: 1.15rem;
-		background-color: $alabaster;
+	}
+	&-text {
+		height: 10rem;
 
 		@include tablet {
 			height: 4rem;
 		}
-
-		&::placeholder {
-			color: $brainflix-black;
-		}
 	}
+
 	&-btn {
 		background-image: url("../../../assets/images/icons/add_comment.svg");
 
 		@include tablet {
 			width: 28%;
+			margin-bottom: 0.4rem;
 		}
 
 		@include desktop {

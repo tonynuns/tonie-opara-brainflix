@@ -13,7 +13,9 @@ function Header() {
 				type="text"
 				id="search"
 				placeholder="Search"></input>
-			<button className="header__btn btn">UPLOAD</button>
+			<Link className="header__btn-wrapper" to="/upload-video">
+				<button className="header__btn btn">UPLOAD</button>
+			</Link>
 			<div className="header__avatar avatar"></div>
 		</header>
 	);

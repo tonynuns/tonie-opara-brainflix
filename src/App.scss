@@ -21,6 +21,37 @@ body {
 	max-width: 4rem;
 	height: 4rem;
 }
+.form-label {
+	@include typography($text-size: 1.1rem, $text-weight: 600);
+	color: $silver;
+	// padding-left: 5.5rem;
+	// padding-bottom: 0.3rem;
+
+	@include desktop {
+		// padding-left: 8.5rem;
+	}
+}
+
+.form-text {
+	@extend .form-long-text;
+	height: 4rem !important;
+}
+
+.form-long-text {
+	padding: 1.2rem;
+	margin-top: 0.3rem;
+	border: 1px solid $mercury;
+	width: 100%;
+	border-radius: 0.4rem;
+	font-family: "avenir-next";
+	font-size: 1.15rem;
+	background-color: $alabaster;
+
+	&::placeholder {
+		color: $brainflix-black;
+	}
+}
+
 .btn {
 	background-color: $brainflix-blue;
 	background-size: 1.8rem;
@@ -30,7 +61,6 @@ body {
 	border-radius: 0.4rem;
 	color: $white;
 	height: 4rem;
-	cursor: pointer;
 	@include typography(1.3rem, 700, 2rem);
 
 	@include tablet {
