@@ -1,7 +1,29 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./UploadVideo.scss";
 import thumbnail from "../../assets/images/images/Upload-video-preview.jpg";
 
 function UploadVideo() {
+	const [videoTitle, setVideoTitle] = useState("");
+	const [videoDescription, setVideoDescription] = useState("");
+	const navigate = useNavigate();
+
+	const handleTitleChange = (event) => {
+		setVideoTitle(event.target.value);
+	};
+	const handleDescriptionChange = (event) => {
+		setVideoDescription(event.target.value);
+	};
+	const handlePublish = (event) => {
+		event.preventDefault();
+		alert("Upload Successful");
+		navigate("/");
+	};
+	const handleCancel = () => {
+		setVideoTitle("");
+		setVideoDescription("");
+	};
+
 	return (
 		<main className="upload-video">
 			<div className="upload-video__container">
@@ -15,15 +37,17 @@ function UploadVideo() {
 							alt="Thumbnail"
 						/>
 					</div>
-					<form className="upload-video__form">
+					<form className="upload-video__form" onSubmit={handlePublish}>
 						<label className="upload-video__form-label form-label">
 							TITLE YOUR VIDEO
 							<br />
 							<input
+								onChange={handleTitleChange}
 								className="upload-video__form-input form-text"
 								type="text"
 								name="title"
 								placeholder="Add a title to your video"
+								value={videoTitle}
 								required></input>
 						</label>
 						<br />
@@ -31,17 +55,21 @@ function UploadVideo() {
 							ADD A VIDEO DESCRIPTION
 							<br />
 							<textarea
+								onChange={handleDescriptionChange}
 								className="upload-video__form-input-long form-long-text"
 								type="text"
 								name="description"
 								placeholder="Add a description to your video"
+								value={videoDescription}
 								required></textarea>
 						</label>
 						<div className="upload-video__form-btn-wrapper">
 							<button className="upload-video__form-btn btn" type="submit">
 								PUBLISH
 							</button>
-							<p className="upload-video__form-cancel">CANCEL</p>
+							<p className="upload-video__form-cancel" onClick={handleCancel}>
+								CANCEL
+							</p>
 						</div>
 					</form>
 				</div>

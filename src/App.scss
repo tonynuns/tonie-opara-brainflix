@@ -24,12 +24,6 @@ body {
 .form-label {
 	@include typography($text-size: 1.1rem, $text-weight: 600);
 	color: $silver;
-	// padding-left: 5.5rem;
-	// padding-bottom: 0.3rem;
-
-	@include desktop {
-		// padding-left: 8.5rem;
-	}
 }
 
 .form-text {
@@ -62,6 +56,7 @@ body {
 	color: $white;
 	height: 4rem;
 	@include typography(1.3rem, 700, 2rem);
+	cursor: pointer;
 
 	@include tablet {
 		padding: 0 3.2rem;

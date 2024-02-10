@@ -1,22 +1,34 @@
+import { useState } from "react";
 import CommentDetail from "./CommentDetail/CommentDetail";
 import "./VideoComments.scss";
 
 function VideoComments({ comments }) {
+	const [newComment, setNewComment] = useState("");
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		setNewComment("");
+	};
+	const handleCommentChange = (event) => {
+		setNewComment(event.target.value);
+	};
+
 	return (
 		<>
 			<section className="main-video__form-container">
-				{/* <h1 className="main-video__form-heading">JOIN THE CONVERSATION</h1> */}
 				<div className="main-video__form-wrapper">
 					<div className="main-video__form-avatar avatar"></div>
-					<form className="main-video__form">
+					<form className="main-video__form" onSubmit={handleSubmit}>
 						<label className="main-video__form-label form-label">
 							JOIN THE CONVERSATION
 							<textarea
+								onChange={handleCommentChange}
 								className="main-video__form-text form-long-text"
 								type="text"
 								name="comment"
 								id="comment"
 								placeholder="Add a new comment"
+								value={newComment}
 								required></textarea>
 						</label>
 
