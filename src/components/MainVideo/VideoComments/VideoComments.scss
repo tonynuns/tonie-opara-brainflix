@@ -12,6 +12,7 @@
 		padding-left: $wide-padding;
 		padding-right: $narrow-padding;
 		width: $wide-width;
+		border-right: 1px solid $mercury;
 	}
 }
 
@@ -74,5 +75,6 @@
 		padding-left: $wide-padding;
 		padding-right: 0;
 		width: $wide-width;
+		border-right: 1px solid $mercury;
 	}
 }

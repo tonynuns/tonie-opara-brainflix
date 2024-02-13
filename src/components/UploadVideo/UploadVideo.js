@@ -14,9 +14,9 @@ function UploadVideo() {
 	const handleDescriptionChange = (event) => {
 		setVideoDescription(event.target.value);
 	};
-	const handlePublish = (event) => {
+	const handleVideoUpload = (event) => {
 		event.preventDefault();
-		alert("Upload Successful");
+		alert("Video Upload Successful");
 		navigate("/");
 	};
 	const handleCancel = () => {
@@ -37,7 +37,7 @@ function UploadVideo() {
 							alt="Thumbnail"
 						/>
 					</div>
-					<form className="upload-video__form" onSubmit={handlePublish}>
+					<form className="upload-video__form" onSubmit={handleVideoUpload}>
 						<label className="upload-video__form-label form-label">
 							TITLE YOUR VIDEO
 							<br />

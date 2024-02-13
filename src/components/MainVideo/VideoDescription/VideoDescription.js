@@ -43,7 +43,7 @@ function VideoDescription({ mainVideo }) {
 				</div>
 				<p className="main-video__desc-text">{mainVideo.description}</p>
 				<p className="main-video__desc-comment-count">
-					{mainVideo.comments && mainVideo.comments.length} Comments
+					{mainVideo.comments?.length} Comments
 				</p>
 			</section>
 		</>

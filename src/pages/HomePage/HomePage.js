@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import MainVideo from "../../components/MainVideo/MainVideo";
+import VideoDescription from "../../components/MainVideo/VideoDescription/VideoDescription";
+import VideoComments from "../../components/MainVideo/VideoComments/VideoComments";
 import SideVideos from "../../components/SideVideos/SideVideos";
 import {
 	getMainVideo,
@@ -8,43 +10,41 @@ import {
 } from "../../utils/apiMethods/brainflix-api";
 
 function HomePage() {
-	let { videoId } = useParams();
+	const { videoId } = useParams();
+	const navigate = useNavigate();
 	const [mainVideoObj, setMainVideoObj] = useState({});
 	const [sideVideosList, setSideVideosList] = useState([]);
 
-	// Retrieve side videos array from the browser storage
-	const sideVideosData = () => {
-		const sideVideosStr = sessionStorage.getItem("sideVideos");
-		return JSON.parse(sideVideosStr);
-	};
-
-	const fetchSideVideos = async () => {
-		const sideVideos = await getSideVideos();
-		setSideVideosList(sideVideos);
-		sessionStorage.setItem("sideVideos", JSON.stringify(sideVideos)); // Store side vide array in browser session storage
-	};
-
-	const fetchMainVideo = async () => {
-		const sideVideos = sideVideosData();
-		const mainVideo = await getMainVideo(videoId ? videoId : sideVideos[0].id);
-		setMainVideoObj(mainVideo);
-	};
-
 	useEffect(() => {
-		fetchSideVideos();
-	}, []);
+		const fetchVideos = async () => {
+			// getSideVideos API call only runs on initial render or page refresh when sideVideosList = []
+			const sideVideos =
+				sideVideosList.length > 0 ? sideVideosList : await getSideVideos();
+			setSideVideosList(sideVideos);
 
-	useEffect(() => {
-		fetchMainVideo();
+			// if invalid videoId is inputted to URL, navigate to NotFoundPage
+			if (videoId && !sideVideos.find((video) => video.id === videoId)) {
+				navigate("*");
+			} else {
+				const mainVideo = await getMainVideo(
+					videoId ? videoId : sideVideos[0].id
+				);
+				setMainVideoObj(mainVideo);
+			}
+		};
+		fetchVideos();
 	}, [videoId]);
-
-	if (videoId && !sideVideosData().find((video) => video.id === videoId)) {
-		return <Navigate to="*" />;
-	}
 
 	return (
 		<>
-			<MainVideo mainVideo={mainVideoObj} />
+			<MainVideo>
+				<VideoDescription mainVideo={mainVideoObj} />
+				<VideoComments
+					videoId={mainVideoObj.id}
+					comments={mainVideoObj.comments}
+					setMainVideo={setMainVideoObj}
+				/>
+			</MainVideo>
 			<SideVideos sideVideos={sideVideosList} mainVideo={mainVideoObj} />
 		</>
 	);
