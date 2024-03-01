@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { postVideo } from "../../utils/apiMethods/brainflix-api";
 import "./UploadVideo.scss";
 import thumbnail from "../../assets/images/images/Upload-video-preview.jpg";
 
@@ -14,8 +15,11 @@ function UploadVideo() {
 	const handleDescriptionChange = (event) => {
 		setVideoDescription(event.target.value);
 	};
-	const handleVideoUpload = (event) => {
+	const handleVideoUpload = async (event) => {
 		event.preventDefault();
+		setVideoTitle("");
+		setVideoDescription("");
+		await postVideo(videoTitle, videoDescription);
 		alert("Video Upload Successful");
 		navigate("/");
 	};

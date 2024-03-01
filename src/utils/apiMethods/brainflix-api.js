@@ -1,6 +1,7 @@
 import axios from "axios";
-const apiKey = "980a73a9-10b8-48ab-a4db-6198b6c8c4c2";
-const apiBaseUrl = "https://project-2-api.herokuapp.com";
+
+const apiBaseUrl = process.env.REACT_APP_BASE_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const getMainVideo = async (videoId) => {
 	try {
@@ -29,13 +30,34 @@ const getSideVideos = async () => {
 	}
 };
 
+const postVideo = async (title, description) => {
+	try {
+		const response = await axios.post(
+			`${apiBaseUrl}/videos?api_key=${apiKey}`,
+			{
+				title,
+				description,
+				channel: "Tonie Opara",
+				image: "http://localhost:8080/images/image0.jpeg",
+				duration: "6.48",
+				video: "http://localhost:8080/videos/samplevideo.mp4",
+			}
+		);
+		return response.data;
+	} catch (error) {
+		console.log(
+			`Failed to post video to back-end API with error message: ${error}`
+		);
+	}
+};
+
 const postComment = async (videoId, name, comment) => {
 	try {
 		const response = await axios.post(
 			`${apiBaseUrl}/videos/${videoId}/comments?api_key=${apiKey}`,
 			{
-				name: name,
-				comment: comment,
+				name,
+				comment,
 			}
 		);
 		return response.data;
@@ -59,4 +81,4 @@ const deleteComment = async (videoId, commentId) => {
 	}
 };
 
-export { getMainVideo, getSideVideos, postComment, deleteComment };
+export { getMainVideo, getSideVideos, postVideo, postComment, deleteComment };
