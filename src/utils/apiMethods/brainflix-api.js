@@ -41,16 +41,22 @@ const postComment = async (videoId, name, comment) => {
 		return response.data;
 	} catch (error) {
 		console.log(
-			`Failed to post comments to back-end API with error message: ${error}`
+			`Failed to post comment to back-end API with error message: ${error}`
 		);
 	}
 };
 
 const deleteComment = async (videoId, commentId) => {
-	const response = await axios.delete(
-		`${apiBaseUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`
-	);
-	return response.data;
+	try {
+		const response = await axios.delete(
+			`${apiBaseUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`
+		);
+		return response.data;
+	} catch (error) {
+		console.log(
+			`Failed to delete comment from back-end API with error message: ${error}`
+		);
+	}
 };
 
 export { getMainVideo, getSideVideos, postComment, deleteComment };

@@ -26,9 +26,8 @@ function HomePage() {
 			if (videoId && !sideVideos.find((video) => video.id === videoId)) {
 				navigate("*");
 			} else {
-				const mainVideo = await getMainVideo(
-					videoId ? videoId : sideVideos[0].id
-				);
+				const mainVideoId = videoId ? videoId : sideVideos[0].id;
+				const mainVideo = await getMainVideo(mainVideoId);
 				setMainVideoObj(mainVideo);
 			}
 		};

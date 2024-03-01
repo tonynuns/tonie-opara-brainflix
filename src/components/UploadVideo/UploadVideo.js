@@ -22,6 +22,7 @@ function UploadVideo() {
 	const handleCancel = () => {
 		setVideoTitle("");
 		setVideoDescription("");
+		navigate("/");
 	};
 
 	return (
