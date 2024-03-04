@@ -38,9 +38,9 @@ const postVideo = async (title, description) => {
 				title,
 				description,
 				channel: "Tonie Opara",
-				image: "http://localhost:8080/images/image0.jpeg",
+				image: "/images/newimage.jpeg",
 				duration: "6.48",
-				video: "http://localhost:8080/videos/samplevideo.mp4",
+				video: "/videos/samplevideo.mp4",
 			}
 		);
 		return response.data;
