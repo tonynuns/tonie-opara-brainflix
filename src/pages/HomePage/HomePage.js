@@ -27,8 +27,8 @@ function HomePage() {
 				navigate("*");
 			} else {
 				const mainVideoId = videoId ? videoId : sideVideos[0].id;
-				const mainVideo = await getMainVideo(mainVideoId);
-				setMainVideoObj(mainVideo);
+				const currentVideo = await getMainVideo(mainVideoId);
+				setMainVideoObj(currentVideo);
 			}
 		};
 		fetchVideos();
@@ -37,7 +37,10 @@ function HomePage() {
 	return (
 		<>
 			<MainVideo>
-				<VideoDescription mainVideo={mainVideoObj} />
+				<VideoDescription
+					mainVideo={mainVideoObj}
+					setMainVideo={setMainVideoObj}
+				/>
 				<VideoComments
 					videoId={mainVideoObj.id}
 					comments={mainVideoObj.comments}

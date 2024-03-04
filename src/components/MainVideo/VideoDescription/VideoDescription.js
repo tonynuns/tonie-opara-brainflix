@@ -1,9 +1,19 @@
+import {
+	likeVideo,
+	getMainVideo,
+} from "../../../utils/apiMethods/brainflix-api";
 import viewsIcon from "../../../assets/images/icons/views.svg";
 import likesIcon from "../../../assets/images/icons/likes.svg";
 import formatDate from "../../../utils/helperFunctions/formatDate";
 import "./VideoDescription.scss";
 
-function VideoDescription({ mainVideo }) {
+function VideoDescription({ mainVideo, setMainVideo }) {
+	const handleVideoLike = async () => {
+		await likeVideo(mainVideo.id);
+		const currentVideo = await getMainVideo(mainVideo.id);
+		setMainVideo(currentVideo);
+	};
+
 	return (
 		<>
 			<div className="main-video__video-wrapper">
@@ -42,6 +52,11 @@ function VideoDescription({ mainVideo }) {
 					</div>
 				</div>
 				<p className="main-video__desc-text">{mainVideo.description}</p>
+				<button
+					className="main-video__video-like-btn btn"
+					onClick={handleVideoLike}>
+					LIKE
+				</button>
 				<p className="main-video__desc-comment-count">
 					{mainVideo.comments?.length} Comments
 				</p>

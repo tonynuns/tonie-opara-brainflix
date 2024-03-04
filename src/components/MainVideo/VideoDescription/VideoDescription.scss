@@ -16,6 +16,15 @@
 .main-video__video {
 	max-width: 100%;
 	max-height: 56.25vw;
+
+	&-like-btn {
+		width: 100%;
+		margin-top: 1rem;
+
+		@include tablet {
+			width: 21%;
+		}
+	}
 }
 
 .main-video__desc {

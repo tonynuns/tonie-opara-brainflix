@@ -8,8 +8,8 @@ import "./CommentDetail.scss";
 function CommentDetail({ comment, videoId, setMainVideo }) {
 	const handleCommentDelete = async () => {
 		await deleteComment(videoId, comment.id);
-		const mainVideo = await getMainVideo(videoId);
-		setMainVideo(mainVideo);
+		const currentVideo = await getMainVideo(videoId);
+		setMainVideo(currentVideo);
 	};
 
 	return (
@@ -22,7 +22,7 @@ function CommentDetail({ comment, videoId, setMainVideo }) {
 				</h3>
 				<p class="main-video__comment-text">{comment.comment}</p>
 				<button
-					className="main-video__comment-delete btn"
+					className="main-video__comment-delete-btn btn"
 					onClick={handleCommentDelete}>
 					DELETE
 				</button>

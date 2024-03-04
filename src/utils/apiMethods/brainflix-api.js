@@ -81,4 +81,24 @@ const deleteComment = async (videoId, commentId) => {
 	}
 };
 
-export { getMainVideo, getSideVideos, postVideo, postComment, deleteComment };
+const likeVideo = async (videoId) => {
+	try {
+		const response = await axios.put(
+			`${apiBaseUrl}/videos/${videoId}/likes?api_key=${apiKey}`
+		);
+		return response.data;
+	} catch (error) {
+		console.log(
+			`Failed to increase count of video likes from back-end API with error message: ${error}`
+		);
+	}
+};
+
+export {
+	getMainVideo,
+	getSideVideos,
+	postVideo,
+	postComment,
+	deleteComment,
+	likeVideo,
+};
