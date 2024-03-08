@@ -17,9 +17,20 @@ function UploadVideo() {
 	};
 	const handleVideoUpload = async (event) => {
 		event.preventDefault();
+		const channel = "Tonie Opara";
+		const duration = "6.48";
+		const video = "/videos/samplevideo.mp4";
+
+		const formData = new FormData(event.currentTarget);
+		formData.append("channel", channel);
+		formData.append("duration", duration);
+		formData.append("video", video);
+
 		setVideoTitle("");
 		setVideoDescription("");
-		await postVideo(videoTitle, videoDescription);
+		event.currentTarget.reset();
+
+		await postVideo(formData);
 		alert("Video Upload Successful");
 		navigate("/");
 	};
@@ -67,6 +78,12 @@ function UploadVideo() {
 								placeholder="Add a description to your video"
 								value={videoDescription}
 								required></textarea>
+						</label>
+						<br />
+						<label className="upload-video__form-label form-label">
+							VIDEO IMAGE FILE
+							<br />
+							<input type="file" accept="image/*" name="file" />
 						</label>
 						<div className="upload-video__form-btn-wrapper">
 							<button className="upload-video__form-btn btn" type="submit">

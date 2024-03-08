@@ -30,18 +30,11 @@ const getSideVideos = async () => {
 	}
 };
 
-const postVideo = async (title, description) => {
+const postVideo = async (formData) => {
 	try {
 		const response = await axios.post(
 			`${apiBaseUrl}/videos?api_key=${apiKey}`,
-			{
-				title,
-				description,
-				channel: "Tonie Opara",
-				image: "/images/newimage.jpeg",
-				duration: "6.48",
-				video: "/videos/samplevideo.mp4",
-			}
+			formData
 		);
 		return response.data;
 	} catch (error) {
