@@ -19,11 +19,13 @@ function UploadVideo() {
 		event.preventDefault();
 		const channel = "Tonie Opara";
 		const duration = "6.48";
+		const image = "/images/defaultimage.jpeg";
 		const video = "/videos/samplevideo.mp4";
 
 		const formData = new FormData(event.currentTarget);
 		formData.append("channel", channel);
 		formData.append("duration", duration);
+		formData.append("image", image);
 		formData.append("video", video);
 
 		setVideoTitle("");
